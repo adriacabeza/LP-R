@@ -233,20 +233,20 @@ Tot llenguatge funcional té tres eines bàsiques per a manipular llistes: Map()
 
 ```R 
 > Reduce(function(a, b) a + b, 1:10)
-    [1] 55
+[1] 55
     
-    > Reduce(`-`, 1:3)
-    [1] -4
+> Reduce(`-`, 1:3)
+[1] -4
+
+> Filter(function(i) i %%3 == 0, c(1,2,3,4,5,6,7,8,9))
+[1] 3 6 9
     
-    > Filter(function(i) i %%3 == 0, c(1,2,3,4,5,6,7,8,9))
-    [1] 3 6 9
+>> Map(function(x,y) x^y, c(9,2), c(3,5))
+[[1]]
+[1] 729
     
-    >> Map(function(x,y) x^y, c(9,2), c(3,5))
-    [[1]]
-    [1] 729
-    
-    [[2]]
-    [1] 32
+[[2]]
+[1] 32
 ```
 ### Lazy evaluation
 
@@ -257,10 +257,10 @@ En R disposem de lazy evaluation, és a dir els paràmetres no es calculen fins 
 > sum.of.squares = function(x, about = mean(x)) {
      x = x[!is.na(x)]
         sum(square(x - about))
-    }
+}
     
-    > sum.of.squares(c(-1, 1, NA))
-    [1] 2
+> sum.of.squares(c(-1, 1, NA))
+[1] 2
 ```
 Orientat a objectes
 -------------------
@@ -271,36 +271,36 @@ Un objecte és una estructura de dades amb atributs i mètodes que actuen en els
 
 ```R 
 > s <- list(name = "John", age = 21, GPA = 3.5)
-    > class(s) <- "studentS3"
-    > s
-    $name
-    [1] "John"
+> class(s) <- "studentS3"
+> s
+$name
+[1] "John"
     
-    $age
-    [1] 21
+$age
+[1] 21
     
-    $GPA
-    [1] 3.5
+$GPA
+[1] 3.5
     
-    attr(,"class")
-    [1] "studentS3"
+attr(,"class")
+[1] "studentS3"
 ```
 - S4, són una millora de S3. Tenen una estructura definida que ajuda a que els objectes d’una mateixa classe tinguin un aspecte similar. Els components es defineixen fent servir la funció *setClass* i els objectes són creats fent servir la funció *new()*.
 
 ```R 
 > setClass("studentS4", slots=list(name="character",
      age="numeric", GPA="numeric"))
-    > s <- new("studentS4",name="John", age=21, GPA=3.5)
-    > s
-    An object of class "studentS4"
-    Slot "name":
-    [1] "John"
+> s <- new("studentS4",name="John", age=21, GPA=3.5)
+> s
+An object of class "studentS4"
+Slot "name":
+[1] "John"
     
-    Slot "age":
-    [1] 21
+Slot "age":
+[1] 21
     
-    Slot "GPA":
-    [1] 3.5
+Slot "GPA":
+[1] 3.5
 ```
 - Classe de Referència, es van introduir posteriorment i són el més semblant a la majoria de llenguatges OOP. Són bàsicament S4 amb un entorn afegit.
 
@@ -308,15 +308,15 @@ Un objecte és una estructura de dades amb atributs i mètodes que actuen en els
 > student <- setRefClass("student",
       fields = list(name = "character", 
     age = "numeric", GPA = "numeric"))
-    > s <- student(name="Adri", age = 20, GPA= 3.0)
-    > s
-    Reference class object of class "student"
-    Field "name":
-    [1] "Adri"
-    Field "age":
-    [1] 20
-    Field "GPA":
-    [1] 3
+> s <- student(name="Adri", age = 20, GPA= 3.0)
+> s
+Reference class object of class "student"
+Field "name":
+[1] "Adri"
+Field "age":
+[1] 20
+Field "GPA":
+[1] 3
 ```
 Reflexiu
 --------
@@ -326,12 +326,12 @@ comportament en temps d’execució. Per a treballar amb les
 característiques reflexives de R tenim funcions com *get*,
 *getAnywhere*, *showMethods*, *assign* o *eval*.
 ```R
-    > f <- function (x) x+1
-    > get("f")(3)
-    [1] 4
+> f <- function (x) x+1
+> get("f")(3)
+[1] 4
     
-    > eval(parse(text="mean(1:5)"))
-    [1] 3
+> eval(parse(text="mean(1:5)"))
+[1] 3
 ```
 Funcions i operadors aritmètics
 ===============================
@@ -344,14 +344,14 @@ el nombre d’elements; sum(x) o prod(x).
 
 ```R 
 > c <- c(1,2,3,4,5)
-    > sqrt(c)
-    [1] 1.000000 1.414214 1.732051 2.000000 2.236068
-    > range(c)
-    [1] 1 5
-    > sin(c)
-    [1]  0.8414710  0.9092974  0.1411200 -0.7568025 -0.9589243
-    > prod(c)
-    [1] 120
+> sqrt(c)
+[1] 1.000000 1.414214 1.732051 2.000000 2.236068
+> range(c)
+[1] 1 5
+> sin(c)
+[1]  0.8414710  0.9092974  0.1411200 -0.7568025 -0.9589243
+ > prod(c)
+[1] 120
 ```
 
 Usos
@@ -435,7 +435,3 @@ Source: <https://www.quora.com/What-is-R-programming-used-for>
 
 *R Classes and Objects*,  Source:
 <https://www.datamentor.io/r-programming/object-class-introduction/>
-
-```
-
-```
