@@ -128,12 +128,12 @@ Normalment les funcions s’assignen a símbols però no és necessari, a les
 funcions que no se’ls hi posa nom les anomenem funcions anònimes. Veiem
 exemples simples de funcions en R:
 ```R
-    > echo <- function(x) print(x)
-    > echo(c(1,2,3,4))
-    [1] 1 2 3 4
+ > echo <- function(x) print(x)
+> echo(c(1,2,3,4))
+[1] 1 2 3 4
     
-    > (function(x) x*x) (c(1,2,3,4,5))
-    [1]  1  4  9 16 25
+> (function(x) x*x) (c(1,2,3,4,5))
+[1]  1  4  9 16 25
 ```
 Paradigma de Programació
 ========================
@@ -203,23 +203,23 @@ comptes de de llistes.
 
 ```R 
 > lapply(c(3,4), function(x,y) x-y, 4)
-    [[1]]
-    [1] -1
+[[1]]
+[1] -1
     
-    [[2]]
-    [1] 0
+[[2]]
+[1] 0
     
-    > fun2 <- list(mean, sum, median)
-    > x<- c(1,2,3,4,5)
-    > lapply(fun2, function(f) f(x))
-    [[1]]
-    [1] 3
+> fun2 <- list(mean, sum, median)
+> x<- c(1,2,3,4,5)
+> lapply(fun2, function(f) f(x))
+[[1]]
+[1] 3
     
-    [[2]]
-    [1] 15
+[[2]]
+[1] 15
     
-    [[3]]
-    [1] 3
+[[3]]
+[1] 3
 ```
 ### Map, Reduce i Filter
 
